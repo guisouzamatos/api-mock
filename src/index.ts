@@ -1,8 +1,11 @@
 import express from 'express';
-import faker from 'faker';
+import { faker } from '@faker-js/faker';
+import {CentreonService} from "./service/centreonService";
 
 const app = express();
-const port = 3000;
+const port = 3000; // PORTA DA API
+
+const centreonService = new CentreonService();
 
 // Endpoint para gerar uma string aleatória
 app.get('/randomstring', (req, res) => {
@@ -12,7 +15,7 @@ app.get('/randomstring', (req, res) => {
 
 // Endpoint para gerar um número aleatório
 app.get('/randomnumber', (req, res) => {
-  const randomNumber = faker.random.number();
+  const randomNumber = faker.number;
   res.json({ number: randomNumber });
 });
 
